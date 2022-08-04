@@ -40,14 +40,17 @@ Request components:
 - Body: none
 
 Response components:
-- Status code: 404
-- Headers: none
-- Body: none
+- Status code:
+  - 404
+- Headers:
+  - content-type: text/html
+- Body:
+  - html page with error message 404
 
 ### Ask for the products list page
 
 Request components:
-- Method: 
+- Method:
 - URL:
 - Headers:
 - Body:
@@ -117,15 +120,27 @@ Here are the categories on the server:
 in the network tab as "payload".
 
 Request components:
-- Method:
-- URL:
+- Method: POST
+- URL: /products
 - Headers:
+  - content-type: application/x-www-form-urlencoded
 - Body:
+  - name
+  - description
+  - price
+  - categories
+    - whatever category it may be
 
 Response components:
 - Status code:
+  - 302
+    - because our server redirects us
 - Headers:
+  - content-type: text/html
+  - location: /products/:productId
 - Body:
+  - none since we are being redirect, and so therefore we do not get any data.
+    - instead the server is telling the browser to make another request to another route instead: /products/:productId
 
 ### Ask for the edit product page
 
@@ -263,4 +278,4 @@ Request components:
 Response components:
 - Status code:
 - Headers:
-- Body:
+- Body: 
