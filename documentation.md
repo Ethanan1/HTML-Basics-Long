@@ -50,15 +50,15 @@ Response components:
 ### Ask for the products list page
 
 Request components:
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: GET
+- URL: /products
+- Headers: none
+- Body: none
 
 Response components:
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: content-type: text/html
+- Body: html page showing product list
 
 ### Ask for the product detail page
 
@@ -73,28 +73,28 @@ Here's an example product on the server:
 | categories  | "beauty", "electronics"                                    |
 
 Request components:
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: GET
+- URL: /product/1
+- Headers: none
+- Body: none
 
 Response components:
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: text/html
+- Body: html
 
 ### Ask for the create new product page
 
 Request components:
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: GET
+- URL: /product/new
+- Headers: none
+- Body: none
 
 Response components:
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: text/html
+- Body: html
 
 ### Submit a new product
 
@@ -145,44 +145,49 @@ Response components:
 ### Ask for the edit product page
 
 Request components:
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: GET
+- URL: /products/1/edit
+- Headers: none
+- Body: none
 
 Response components:
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: text/html
+- Body: Showing the different components (Name, Description, Price, Categories)
 
 ### Submit an edit for an existing product
 
 After successful submission, user should be looking at the product detail page.
 
 Request components:
-- Method:
-- URL:
+- Method: POST
+- URL: /products/1
 - Headers:
-- Body:
+  - content-type: application/x-www-form-urlencoded
+- Body: Showing the different components (Name, Description, Price, Categories)
+  - specific format we need to use on exam (this is not it)
 
 Response components:
-- Status code:
-- Headers:
-- Body:
+- Status code: 302
+- Header:
+  - content-type: text/html
+  - location: /products/:productId
+- Body: none
 
 ### Submit a delete for an existing product
 
 After successful submission, user should be looking at the products list page.
 
 Request components:
-- Method:
-- URL:
+- Method: POST
+- URL: /products/1/delete
 - Headers:
-- Body:
+  - content-type: application/x-www-form-urlencoded
+- Body: none
 
 Response components:
-- Status code:
-- Headers:
+- Status code: 302
+- Headers: 
 - Body:
 
 ### Submit a new review for a product
@@ -278,4 +283,4 @@ Request components:
 Response components:
 - Status code:
 - Headers:
-- Body: 
+- Body:
